@@ -285,9 +285,39 @@ Turn the followings into functions, making sure that your function retrieves an 
 
 -   `mean(x, na.rm = T)`
 
+``` r
+mean_rmT <- function(x) mean(x, na.rm = T)
+x <- c('5','5')
+mean_rmT(x)
+```
+
+    ## Warning in mean.default(x, na.rm = T): argument is not numeric or logical:
+    ## returning NA
+
+    ## [1] NA
+
+``` r
+x <- c(5,7)
+mean_rmT(x)
+```
+
+    ## [1] 6
+
 -   `x / sum(x, na.rm = TRUE)`
 
+``` r
+x_over_sum <- function(x) x/sum(x, na.rm=TRUE)
+x <- c(5,5)
+x_over_sum(x)
+```
+
+    ## [1] 0.5 0.5
+
 -   `sd(x, na.rm = TRUE) / mean(x, na.rm = TRUE)`
+
+``` r
+sd_over_mean <- function(x) sd(x, na.rm = TRUE) / mean(x, na.rm=TRUE)
+```
 
 For the pros: Use `BRRR::skrrrahh(33)` to listen DJ Khaled yelling "They don't wanna see us win!" when `x` is not numeric. The package is available on GitHub only:
 
