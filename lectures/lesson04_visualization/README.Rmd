@@ -116,7 +116,21 @@ ggplot() +
  Suppose that you now want to flag (e.g., use a different color) the observation for consumption in your birthyear. We can do it in two steps:
     
     1. Create a new variable called 'myBirthYear' that takes value 'My birthyear' for your birth year, and NA for everything else. You could use `ifelse()` or conditional indexing/assignment
+```{r}
+beerDt$myBirthYear <- beerDt$Year == 1996
+ggplot(beerDt, aes(x=Year, y=GallonsCapita)) +
+  geom_line() +
+  geom_point(aes(color=myBirthYear))
+  
+```
+    
     2. Map `myBirthYear` to the fill of `geom_point` to flag your birth year
+```{r}
+ggplot(beerDt, aes(x=Year, y=GallonsCapita)) +
+  geom_line() +
+  geom_point(aes(fill=myBirthYear))
+```
+    
     3. Use ggtitle to add a title to the chart
 
 
